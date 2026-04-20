@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://cudhsdef40rom"]
+
+[ext_resource type="Texture2D" uid="uid://c0dbr46mxwpi6" path="res://mods/characters/template_character/sprites/icon.svg" id="1_ktfo8"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_ktfo8")
+}],
+"loop": false,
+"name": &"default",
+"speed": 30.0
+}]

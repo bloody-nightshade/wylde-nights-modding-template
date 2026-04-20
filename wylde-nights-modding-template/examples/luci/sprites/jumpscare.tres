@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://dhnxyk8f18gym"]
+
+[ext_resource type="Texture2D" uid="uid://5go7ou3teuh6" path="res://examples/luci/sprites/icon.svg" id="1_1sacy"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_1sacy")
+}],
+"loop": false,
+"name": &"default",
+"speed": 30.0
+}]

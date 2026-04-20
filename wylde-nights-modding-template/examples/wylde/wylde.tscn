@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://duixyw7qlmpxb"]
+
+[ext_resource type="Script" uid="uid://bc6kwsb1dtf65" path="res://examples/wylde/wylde.gd" id="1_753hh"]
+[ext_resource type="AudioStream" uid="uid://776cklk7co7h" path="res://examples/wylde/audio/cat_meow.mp3" id="3_ewmqk"]
+
+[node name="Wylde" type="Node"]
+script = ExtResource("1_753hh")
+metadata/_custom_type_script = "uid://bc6kwsb1dtf65"
+
+[node name="ChargeAudio" type="AudioStreamPlayer2D" parent="."]
+
+[node name="RoomSwapAudio" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_ewmqk")
+
+[node name="DoorBangingAudio" type="AudioStreamPlayer2D" parent="."]

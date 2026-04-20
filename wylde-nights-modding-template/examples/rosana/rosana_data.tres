@@ -1,0 +1,18 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=4 format=3 uid="uid://dqbhx4biogjtc"]
+
+[ext_resource type="Script" uid="uid://brll4euwimdx3" path="res://wylde_nights_scripts/data/appearances.gd" id="1_mxcio"]
+[ext_resource type="PackedScene" uid="uid://crldjey0sjl7d" path="res://examples/rosana/rosana.tscn" id="2_11sp7"]
+[ext_resource type="Script" uid="uid://bin218a63anxu" path="res://wylde_nights_scripts/data/character_data.gd" id="3_lf732"]
+
+[resource]
+script = ExtResource("3_lf732")
+character_id = "nightshade:rosana"
+character_display_name = "Rosana"
+author = "Nightshade"
+default_difficulties = Array[int]([0, 20, 20, 20, 20])
+scene = ExtResource("2_11sp7")
+camera_appearances = Dictionary[int, ExtResource("1_mxcio")]({})
+office_appearances = Dictionary[int, ExtResource("1_mxcio")]({})
+extras_description = ""
+death_screen_hints = Array[String]([""])
+metadata/_custom_type_script = "uid://b4scgprmlmgfd"

@@ -1,0 +1,84 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=18 format=3 uid="uid://ccv6f06rhtxb8"]
+
+[ext_resource type="Script" uid="uid://brll4euwimdx3" path="res://wylde_nights_scripts/data/appearances.gd" id="1_wlnyx"]
+[ext_resource type="Script" uid="uid://ciq4n4hy0k0fy" path="res://wylde_nights_scripts/data/character_appearance.gd" id="2_0a74q"]
+[ext_resource type="Script" uid="uid://iwkmydanqtyp" path="res://wylde_nights_scripts/data/sprite_appearance.gd" id="3_454bq"]
+[ext_resource type="SpriteFrames" uid="uid://cudhsdef40rom" path="res://mods/characters/template_character/sprites/jumpscare.tres" id="3_kpmyq"]
+[ext_resource type="PackedScene" uid="uid://qhhkgpo7d4s2" path="res://mods/characters/template_character/template_character.tscn" id="4_454bq"]
+[ext_resource type="Texture2D" uid="uid://c0dbr46mxwpi6" path="res://mods/characters/template_character/sprites/icon.svg" id="4_s1566"]
+[ext_resource type="Script" uid="uid://bin218a63anxu" path="res://wylde_nights_scripts/data/character_data.gd" id="5_s1566"]
+
+[sub_resource type="Resource" id="Resource_dnptu"]
+script = ExtResource("3_454bq")
+texture = ExtResource("4_s1566")
+metadata/_custom_type_script = "uid://iwkmydanqtyp"
+
+[sub_resource type="Resource" id="Resource_k164g"]
+script = ExtResource("1_wlnyx")
+appearances = Dictionary[String, ExtResource("2_0a74q")]({
+"idle": SubResource("Resource_dnptu")
+})
+
+[sub_resource type="Resource" id="Resource_rqc4r"]
+script = ExtResource("3_454bq")
+texture = ExtResource("4_s1566")
+metadata/_custom_type_script = "uid://iwkmydanqtyp"
+
+[sub_resource type="Resource" id="Resource_ilhq0"]
+script = ExtResource("1_wlnyx")
+appearances = Dictionary[String, ExtResource("2_0a74q")]({
+"idle": SubResource("Resource_rqc4r")
+})
+
+[sub_resource type="Resource" id="Resource_iltoy"]
+script = ExtResource("3_454bq")
+texture = ExtResource("4_s1566")
+metadata/_custom_type_script = "uid://iwkmydanqtyp"
+
+[sub_resource type="Resource" id="Resource_br1kk"]
+script = ExtResource("1_wlnyx")
+appearances = Dictionary[String, ExtResource("2_0a74q")]({
+"idle": SubResource("Resource_iltoy")
+})
+
+[sub_resource type="Resource" id="Resource_4uwkp"]
+script = ExtResource("3_454bq")
+texture = ExtResource("4_s1566")
+metadata/_custom_type_script = "uid://iwkmydanqtyp"
+
+[sub_resource type="Resource" id="Resource_t4mwy"]
+script = ExtResource("1_wlnyx")
+appearances = Dictionary[String, ExtResource("2_0a74q")]({
+"idle": SubResource("Resource_4uwkp")
+})
+
+[sub_resource type="Resource" id="Resource_ww1e5"]
+script = ExtResource("3_454bq")
+texture = ExtResource("4_s1566")
+metadata/_custom_type_script = "uid://iwkmydanqtyp"
+
+[sub_resource type="Resource" id="Resource_44yai"]
+script = ExtResource("1_wlnyx")
+appearances = Dictionary[String, ExtResource("2_0a74q")]({
+"idle": SubResource("Resource_ww1e5")
+})
+
+[resource]
+script = ExtResource("5_s1566")
+character_id = "example:template_character"
+character_display_name = "Template Character"
+author = "Example"
+default_difficulties = Array[int]([1, 2, 4, 8, 16])
+scene = ExtResource("4_454bq")
+camera_appearances = Dictionary[int, ExtResource("1_wlnyx")]({
+4: SubResource("Resource_k164g"),
+6: SubResource("Resource_ilhq0"),
+7: SubResource("Resource_br1kk"),
+8: SubResource("Resource_t4mwy"),
+10: SubResource("Resource_44yai")
+})
+office_appearances = Dictionary[int, ExtResource("1_wlnyx")]({})
+jumpscare_animation = ExtResource("3_kpmyq")
+extras_description = ""
+death_screen_hints = Array[String]([""])
+metadata/_custom_type_script = "uid://bin218a63anxu"

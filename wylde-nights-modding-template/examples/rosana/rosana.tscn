@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=3 uid="uid://crldjey0sjl7d"]
+
+[ext_resource type="Script" uid="uid://dt2hg0y8l4amn" path="res://examples/rosana/rosana.gd" id="1_vfnko"]
+
+[node name="Rosana" type="Node"]
+script = ExtResource("1_vfnko")
+advert_spawn_min = 30.0
+advert_spawn_max = 60.0
+metadata/_custom_type_script = "uid://dt2hg0y8l4amn"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 2

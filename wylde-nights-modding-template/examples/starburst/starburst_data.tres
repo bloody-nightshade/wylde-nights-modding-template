@@ -1,0 +1,40 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=10 format=3 uid="uid://b6a25tkjat7ru"]
+
+[ext_resource type="Script" uid="uid://brll4euwimdx3" path="res://wylde_nights_scripts/data/appearances.gd" id="1_bgidj"]
+[ext_resource type="Script" uid="uid://ciq4n4hy0k0fy" path="res://wylde_nights_scripts/data/character_appearance.gd" id="2_xryya"]
+[ext_resource type="PackedScene" uid="uid://diac381l106wr" path="res://examples/starburst/starburst.tscn" id="3_bgidj"]
+[ext_resource type="Script" uid="uid://iwkmydanqtyp" path="res://wylde_nights_scripts/data/sprite_appearance.gd" id="3_e4sx3"]
+[ext_resource type="Script" uid="uid://bin218a63anxu" path="res://wylde_nights_scripts/data/character_data.gd" id="4_7iepe"]
+[ext_resource type="Texture2D" uid="uid://ccjurtr0lv33e" path="res://examples/starburst/sprites/icon.svg" id="4_qacre"]
+[ext_resource type="SpriteFrames" uid="uid://c4hej327hbrlh" path="res://examples/starburst/sprites/jumpscare.tres" id="6_x5sup"]
+
+[sub_resource type="Resource" id="Resource_7ahip"]
+script = ExtResource("3_e4sx3")
+texture = ExtResource("4_qacre")
+metadata/_custom_type_script = "uid://iwkmydanqtyp"
+
+[sub_resource type="Resource" id="Resource_7dq2k"]
+script = ExtResource("1_bgidj")
+appearances = Dictionary[String, ExtResource("2_xryya")]({
+"idle": SubResource("Resource_7ahip")
+})
+
+[resource]
+script = ExtResource("4_7iepe")
+character_id = "nightshade:starburst"
+character_display_name = "Starburst"
+author = "Nightshade"
+default_difficulties = Array[int]([0, 4, 7, 10, 16])
+scene = ExtResource("3_bgidj")
+camera_appearances = Dictionary[int, ExtResource("1_bgidj")]({
+4: SubResource("Resource_7dq2k"),
+6: SubResource("Resource_7dq2k"),
+7: SubResource("Resource_7dq2k"),
+8: SubResource("Resource_7dq2k"),
+10: SubResource("Resource_7dq2k")
+})
+office_appearances = Dictionary[int, ExtResource("1_bgidj")]({})
+jumpscare_animation = ExtResource("6_x5sup")
+extras_portrait = ExtResource("4_qacre")
+extras_description = ""
+death_screen_hints = Array[String](["Starburst always shows up at your right door, be sure to check Camera 8 when you have the chance."])

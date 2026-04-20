@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://c4hej327hbrlh"]
+
+[ext_resource type="Texture2D" uid="uid://ccjurtr0lv33e" path="res://examples/starburst/sprites/icon.svg" id="1_vhmux"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_vhmux")
+}],
+"loop": false,
+"name": &"default",
+"speed": 30.0
+}]

@@ -1,0 +1,94 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=25 format=3 uid="uid://rlv3e1wiutj5"]
+
+[ext_resource type="Script" uid="uid://brll4euwimdx3" path="res://wylde_nights_scripts/data/appearances.gd" id="1_vp5sk"]
+[ext_resource type="Texture2D" uid="uid://hscufuxuq75k" path="res://examples/wylde/sprites/cameras/WYLDE_CAM7_STAGE01.png" id="2_0h5bx"]
+[ext_resource type="Texture2D" uid="uid://cqtbnqmf3w3ys" path="res://examples/wylde/sprites/cameras/WYLDE_CAM2_STAGE01.png" id="2_f0u62"]
+[ext_resource type="Script" uid="uid://ciq4n4hy0k0fy" path="res://wylde_nights_scripts/data/character_appearance.gd" id="2_jivti"]
+[ext_resource type="Script" uid="uid://bin218a63anxu" path="res://wylde_nights_scripts/data/character_data.gd" id="3_0apgv"]
+[ext_resource type="Script" uid="uid://iwkmydanqtyp" path="res://wylde_nights_scripts/data/sprite_appearance.gd" id="3_66t0q"]
+[ext_resource type="Texture2D" uid="uid://3pv6eeoh3kle" path="res://examples/wylde/sprites/cameras/WYLDE_CAM2_STAGE02.png" id="3_cryth"]
+[ext_resource type="Texture2D" uid="uid://c1kxrstva14cn" path="res://examples/wylde/sprites/cameras/WYLDE_CAM7_STAGE02.png" id="3_d1ch5"]
+[ext_resource type="PackedScene" uid="uid://duixyw7qlmpxb" path="res://examples/wylde/wylde.tscn" id="3_v0om8"]
+[ext_resource type="Texture2D" uid="uid://p5v2oh6fcwkf" path="res://examples/wylde/sprites/cameras/WYLDE_CAM7_STAGE03.png" id="4_o58dk"]
+[ext_resource type="Texture2D" uid="uid://ceqwy4vwpcbyg" path="res://examples/wylde/sprites/cameras/WYLDE_CAM2_STAGE00.png" id="4_qoppo"]
+[ext_resource type="SpriteFrames" uid="uid://cdxmxcd6mfpa2" path="res://examples/wylde/sprites/jumpscare.tres" id="8_cryth"]
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_cqrof"]
+
+[sub_resource type="Resource" id="Resource_avnt3"]
+script = ExtResource("3_66t0q")
+texture = SubResource("CompressedTexture2D_cqrof")
+metadata/_custom_type_script = "uid://dnx08ofjcuyl5"
+
+[sub_resource type="Resource" id="Resource_gsmvl"]
+script = ExtResource("3_66t0q")
+texture = ExtResource("4_qoppo")
+metadata/_custom_type_script = "uid://dnx08ofjcuyl5"
+
+[sub_resource type="Resource" id="Resource_8y60e"]
+script = ExtResource("3_66t0q")
+texture = ExtResource("2_f0u62")
+metadata/_custom_type_script = "uid://dnx08ofjcuyl5"
+
+[sub_resource type="Resource" id="Resource_664v0"]
+script = ExtResource("3_66t0q")
+texture = ExtResource("3_cryth")
+metadata/_custom_type_script = "uid://dnx08ofjcuyl5"
+
+[sub_resource type="Resource" id="Resource_bfrs2"]
+script = ExtResource("1_vp5sk")
+appearances = Dictionary[String, ExtResource("2_jivti")]({
+"charging": SubResource("Resource_avnt3"),
+"stage_0": SubResource("Resource_gsmvl"),
+"stage_1": SubResource("Resource_8y60e"),
+"stage_2": SubResource("Resource_664v0")
+})
+metadata/_custom_type_script = "uid://cby2xt2trt74y"
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_clbck"]
+
+[sub_resource type="Resource" id="Resource_8osxf"]
+script = ExtResource("3_66t0q")
+texture = SubResource("CompressedTexture2D_clbck")
+metadata/_custom_type_script = "uid://dnx08ofjcuyl5"
+
+[sub_resource type="Resource" id="Resource_lgg4r"]
+script = ExtResource("3_66t0q")
+texture = ExtResource("2_0h5bx")
+metadata/_custom_type_script = "uid://dnx08ofjcuyl5"
+
+[sub_resource type="Resource" id="Resource_72fe7"]
+script = ExtResource("3_66t0q")
+texture = ExtResource("3_d1ch5")
+metadata/_custom_type_script = "uid://dnx08ofjcuyl5"
+
+[sub_resource type="Resource" id="Resource_3ou36"]
+script = ExtResource("3_66t0q")
+texture = ExtResource("4_o58dk")
+metadata/_custom_type_script = "uid://dnx08ofjcuyl5"
+
+[sub_resource type="Resource" id="Resource_e8yek"]
+script = ExtResource("1_vp5sk")
+appearances = Dictionary[String, ExtResource("2_jivti")]({
+"charging": SubResource("Resource_8osxf"),
+"stage_0": SubResource("Resource_lgg4r"),
+"stage_1": SubResource("Resource_72fe7"),
+"stage_2": SubResource("Resource_3ou36")
+})
+metadata/_custom_type_script = "uid://cby2xt2trt74y"
+
+[resource]
+script = ExtResource("3_0apgv")
+character_id = "nightshade:wylde"
+character_display_name = "Wylde"
+author = "Nightshade"
+default_difficulties = Array[int]([0, 0, 0, 0, 0])
+scene = ExtResource("3_v0om8")
+camera_appearances = Dictionary[int, ExtResource("1_vp5sk")]({
+1: SubResource("Resource_bfrs2"),
+6: SubResource("Resource_e8yek")
+})
+office_appearances = Dictionary[int, ExtResource("1_vp5sk")]({})
+jumpscare_animation = ExtResource("8_cryth")
+extras_description = ""
+death_screen_hints = Array[String]([""])

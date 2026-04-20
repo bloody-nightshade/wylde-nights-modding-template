@@ -1,0 +1,1 @@
+# Contributing to wylde-nights-modding-template

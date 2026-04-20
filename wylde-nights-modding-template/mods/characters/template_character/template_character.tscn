@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://qhhkgpo7d4s2"]
+
+[ext_resource type="Script" uid="uid://dsd2qp6flytcs" path="res://mods/characters/template_character/template_character.gd" id="1_n0477"]
+
+[node name="TemplateCharacter" type="Node"]
+script = ExtResource("1_n0477")
+metadata/_custom_type_script = "uid://dsd2qp6flytcs"

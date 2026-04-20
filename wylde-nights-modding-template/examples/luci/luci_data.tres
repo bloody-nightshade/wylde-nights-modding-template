@@ -1,0 +1,55 @@
+[gd_resource type="Resource" script_class="CharacterData" load_steps=12 format=3 uid="uid://5r6ur5d2ufhw"]
+
+[ext_resource type="Script" uid="uid://brll4euwimdx3" path="res://wylde_nights_scripts/data/appearances.gd" id="1_p5coo"]
+[ext_resource type="Script" uid="uid://ciq4n4hy0k0fy" path="res://wylde_nights_scripts/data/character_appearance.gd" id="2_ry4jv"]
+[ext_resource type="Script" uid="uid://bin218a63anxu" path="res://wylde_nights_scripts/data/character_data.gd" id="3_630p3"]
+[ext_resource type="Script" uid="uid://iwkmydanqtyp" path="res://wylde_nights_scripts/data/sprite_appearance.gd" id="3_x66qk"]
+[ext_resource type="SpriteFrames" uid="uid://dhnxyk8f18gym" path="res://examples/luci/sprites/jumpscare.tres" id="5_f6qu6"]
+[ext_resource type="Texture2D" uid="uid://5go7ou3teuh6" path="res://examples/luci/sprites/icon.svg" id="14_kt5fk"]
+[ext_resource type="PackedScene" uid="uid://duss60y4m1r35" path="res://examples/luci/luci.tscn" id="18_7biok"]
+
+[sub_resource type="Resource" id="Resource_yxm8a"]
+script = ExtResource("3_x66qk")
+texture = ExtResource("14_kt5fk")
+metadata/_custom_type_script = "uid://iwkmydanqtyp"
+
+[sub_resource type="Resource" id="Resource_pyqvp"]
+script = ExtResource("1_p5coo")
+appearances = Dictionary[String, ExtResource("2_ry4jv")]({
+"idle": SubResource("Resource_yxm8a")
+})
+
+[sub_resource type="Resource" id="Resource_451l1"]
+script = ExtResource("1_p5coo")
+appearances = Dictionary[String, ExtResource("2_ry4jv")]({})
+
+[sub_resource type="Resource" id="Resource_fhifw"]
+script = ExtResource("1_p5coo")
+appearances = Dictionary[String, ExtResource("2_ry4jv")]({})
+
+[resource]
+script = ExtResource("3_630p3")
+character_id = "nightshade:luci"
+character_display_name = "Luci"
+author = "Nightshade"
+default_difficulties = Array[int]([20, 0, 0, 0, 0])
+scene = ExtResource("18_7biok")
+camera_appearances = Dictionary[int, ExtResource("1_p5coo")]({
+1: SubResource("Resource_pyqvp"),
+2: SubResource("Resource_pyqvp"),
+3: SubResource("Resource_pyqvp"),
+4: SubResource("Resource_pyqvp"),
+5: SubResource("Resource_pyqvp"),
+6: SubResource("Resource_pyqvp"),
+7: SubResource("Resource_pyqvp"),
+8: SubResource("Resource_pyqvp"),
+9: SubResource("Resource_pyqvp"),
+10: SubResource("Resource_pyqvp")
+})
+office_appearances = Dictionary[int, ExtResource("1_p5coo")]({
+1: SubResource("Resource_451l1"),
+2: SubResource("Resource_fhifw")
+})
+jumpscare_animation = ExtResource("5_f6qu6")
+extras_description = ""
+death_screen_hints = Array[String]([""])

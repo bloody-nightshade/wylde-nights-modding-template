@@ -1,0 +1,14 @@
+[gd_resource type="SpriteFrames" load_steps=2 format=3 uid="uid://cdxmxcd6mfpa2"]
+
+[ext_resource type="Texture2D" uid="uid://bekhv3ionwlbo" path="res://examples/wylde/sprites/icon.svg" id="1_frwut"]
+
+[resource]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_frwut")
+}],
+"loop": false,
+"name": &"default",
+"speed": 30.0
+}]

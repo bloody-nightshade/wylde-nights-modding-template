@@ -1,0 +1,130 @@
+[gd_resource type="Resource" script_class="RoomGraph" load_steps=28 format=3 uid="uid://c71jo8khiju01"]
+
+[ext_resource type="Script" uid="uid://dofxwnbfobur1" path="res://wylde_nights_scripts/data/room_connections.gd" id="1_2r5rv"]
+[ext_resource type="Script" uid="uid://b3wdiyqgxx62s" path="res://wylde_nights_scripts/data/room_graph.gd" id="2_sylkd"]
+[ext_resource type="Script" uid="uid://bcxxxqy4evx2h" path="res://wylde_nights_scripts/data/room_connection.gd" id="2_wfe8l"]
+
+[sub_resource type="Resource" id="Resource_sylkd"]
+script = ExtResource("2_wfe8l")
+destination = 1
+weight = 8
+
+[sub_resource type="Resource" id="Resource_wfe8l"]
+script = ExtResource("2_wfe8l")
+destination = 3
+weight = 2
+
+[sub_resource type="Resource" id="Resource_gn5h8"]
+script = ExtResource("1_2r5rv")
+room_connections = Array[ExtResource("2_wfe8l")]([SubResource("Resource_sylkd"), SubResource("Resource_wfe8l")])
+
+[sub_resource type="Resource" id="Resource_xtlx0"]
+script = ExtResource("2_wfe8l")
+destination = 2
+weight = 8
+
+[sub_resource type="Resource" id="Resource_0u4gh"]
+script = ExtResource("2_wfe8l")
+destination = 0
+weight = 2
+
+[sub_resource type="Resource" id="Resource_3twmw"]
+script = ExtResource("1_2r5rv")
+room_connections = Array[ExtResource("2_wfe8l")]([SubResource("Resource_xtlx0"), SubResource("Resource_0u4gh")])
+
+[sub_resource type="Resource" id="Resource_r1rgn"]
+script = ExtResource("2_wfe8l")
+destination = 8
+weight = 1
+
+[sub_resource type="Resource" id="Resource_6flp2"]
+script = ExtResource("1_2r5rv")
+room_connections = Array[ExtResource("2_wfe8l")]([SubResource("Resource_r1rgn")])
+
+[sub_resource type="Resource" id="Resource_clujm"]
+script = ExtResource("2_wfe8l")
+destination = 0
+weight = 3
+
+[sub_resource type="Resource" id="Resource_gprfc"]
+script = ExtResource("2_wfe8l")
+destination = 4
+weight = 4
+
+[sub_resource type="Resource" id="Resource_lb8qm"]
+script = ExtResource("2_wfe8l")
+destination = 5
+weight = 3
+
+[sub_resource type="Resource" id="Resource_h0lhp"]
+script = ExtResource("1_2r5rv")
+room_connections = Array[ExtResource("2_wfe8l")]([SubResource("Resource_clujm"), SubResource("Resource_gprfc"), SubResource("Resource_lb8qm")])
+
+[sub_resource type="Resource" id="Resource_armt2"]
+script = ExtResource("2_wfe8l")
+destination = 2
+weight = 5
+
+[sub_resource type="Resource" id="Resource_v5w5e"]
+script = ExtResource("2_wfe8l")
+destination = 7
+weight = 5
+
+[sub_resource type="Resource" id="Resource_jngkt"]
+script = ExtResource("2_wfe8l")
+destination = 3
+weight = 1
+
+[sub_resource type="Resource" id="Resource_777l2"]
+script = ExtResource("1_2r5rv")
+room_connections = Array[ExtResource("2_wfe8l")]([SubResource("Resource_armt2"), SubResource("Resource_v5w5e"), SubResource("Resource_jngkt")])
+
+[sub_resource type="Resource" id="Resource_qdxlp"]
+script = ExtResource("2_wfe8l")
+destination = 6
+weight = 8
+
+[sub_resource type="Resource" id="Resource_n7qjx"]
+script = ExtResource("2_wfe8l")
+destination = 3
+weight = 2
+
+[sub_resource type="Resource" id="Resource_llvb0"]
+script = ExtResource("1_2r5rv")
+room_connections = Array[ExtResource("2_wfe8l")]([SubResource("Resource_qdxlp"), SubResource("Resource_n7qjx")])
+
+[sub_resource type="Resource" id="Resource_jfkg6"]
+script = ExtResource("2_wfe8l")
+destination = 7
+weight = 8
+
+[sub_resource type="Resource" id="Resource_0s7p4"]
+script = ExtResource("2_wfe8l")
+destination = 5
+weight = 2
+
+[sub_resource type="Resource" id="Resource_hm3ni"]
+script = ExtResource("1_2r5rv")
+room_connections = Array[ExtResource("2_wfe8l")]([SubResource("Resource_jfkg6"), SubResource("Resource_0s7p4")])
+
+[sub_resource type="Resource" id="Resource_m7yu4"]
+script = ExtResource("2_wfe8l")
+destination = 9
+weight = 1
+
+[sub_resource type="Resource" id="Resource_y5o3c"]
+script = ExtResource("1_2r5rv")
+room_connections = Array[ExtResource("2_wfe8l")]([SubResource("Resource_m7yu4")])
+
+[resource]
+script = ExtResource("2_sylkd")
+graph = Dictionary[int, ExtResource("1_2r5rv")]({
+0: SubResource("Resource_gn5h8"),
+1: SubResource("Resource_3twmw"),
+2: SubResource("Resource_6flp2"),
+3: SubResource("Resource_h0lhp"),
+4: SubResource("Resource_777l2"),
+5: SubResource("Resource_llvb0"),
+6: SubResource("Resource_hm3ni"),
+7: SubResource("Resource_y5o3c")
+})
