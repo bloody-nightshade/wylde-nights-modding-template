@@ -16,6 +16,10 @@ config/tags=PackedStringArray("wylde_nights")
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="res://mods/characters/template_character/sprites/icon.svg"
 
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/wyldenightsmoddingexportplugin/plugin.cfg")
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"
