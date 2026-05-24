@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="ModManifest" load_steps=2 format=3 uid="uid://blgxqj4n4jis6"]
+
+[ext_resource type="Script" uid="uid://c3tyef7hh0qcm" path="res://shared/mod_manifest.gd" id="1_x4v0m"]
+
+[resource]
+script = ExtResource("1_x4v0m")
+mod_id = "template_mod"
+author = "example_author"
+version = "1.0"
+mod_name = "Template Mod"
+description = "This is a description box. If this hasnt been filled out yet and you see this in-game, clown on the original mod creator because it would be funny."
+metadata/_custom_type_script = "uid://c3tyef7hh0qcm"

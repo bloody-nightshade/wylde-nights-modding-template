@@ -5,9 +5,6 @@
 ## This is what will show up for the player.
 @export var character_display_name: String = ""
 
-## This is your thing isn't it? At least credit yourself for it!! :steamhappy:
-@export var author: String = ""
-
 ## These allow you to set the difficulties for your character for Nights 1 to 5, keep everything at 0 if you don't want them to appear in the main game.
 @export var default_difficulties: Array[int] = [0, 0, 0, 0, 0]
 ## I'll put something here eventually

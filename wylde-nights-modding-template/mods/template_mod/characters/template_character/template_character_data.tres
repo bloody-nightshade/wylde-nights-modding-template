@@ -1,12 +1,12 @@
 [gd_resource type="Resource" script_class="CharacterData" load_steps=18 format=3 uid="uid://ccv6f06rhtxb8"]
 
-[ext_resource type="Script" uid="uid://brll4euwimdx3" path="res://wylde_nights_scripts/data/appearances.gd" id="1_wlnyx"]
-[ext_resource type="Script" uid="uid://ciq4n4hy0k0fy" path="res://wylde_nights_scripts/data/character_appearance.gd" id="2_0a74q"]
-[ext_resource type="Script" uid="uid://iwkmydanqtyp" path="res://wylde_nights_scripts/data/sprite_appearance.gd" id="3_454bq"]
-[ext_resource type="SpriteFrames" uid="uid://cudhsdef40rom" path="res://mods/characters/template_character/sprites/jumpscare.tres" id="3_kpmyq"]
-[ext_resource type="PackedScene" uid="uid://qhhkgpo7d4s2" path="res://mods/characters/template_character/template_character.tscn" id="4_454bq"]
-[ext_resource type="Texture2D" uid="uid://c0dbr46mxwpi6" path="res://mods/characters/template_character/sprites/icon.svg" id="4_s1566"]
-[ext_resource type="Script" uid="uid://bin218a63anxu" path="res://wylde_nights_scripts/data/character_data.gd" id="5_s1566"]
+[ext_resource type="Script" uid="uid://brll4euwimdx3" path="res://gamemodes/office_night_watch/characters/data/appearances.gd" id="1_wlnyx"]
+[ext_resource type="Script" uid="uid://ciq4n4hy0k0fy" path="res://gamemodes/office_night_watch/characters/data/character_appearance.gd" id="2_0a74q"]
+[ext_resource type="Script" uid="uid://iwkmydanqtyp" path="res://gamemodes/office_night_watch/characters/data/sprite_appearance.gd" id="3_454bq"]
+[ext_resource type="SpriteFrames" uid="uid://cudhsdef40rom" path="res://mods/template_mod/characters/template_character/sprites/jumpscare.tres" id="3_kpmyq"]
+[ext_resource type="PackedScene" uid="uid://qhhkgpo7d4s2" path="res://mods/template_mod/characters/template_character/template_character.tscn" id="4_454bq"]
+[ext_resource type="Texture2D" uid="uid://c0dbr46mxwpi6" path="res://mods/template_mod/characters/template_character/sprites/icon.svg" id="4_s1566"]
+[ext_resource type="Script" uid="uid://bin218a63anxu" path="res://gamemodes/office_night_watch/characters/data/character_data.gd" id="5_s1566"]
 
 [sub_resource type="Resource" id="Resource_dnptu"]
 script = ExtResource("3_454bq")
