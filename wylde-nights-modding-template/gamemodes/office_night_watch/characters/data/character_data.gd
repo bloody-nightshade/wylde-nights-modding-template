@@ -19,10 +19,21 @@
 @export_group("Visual Apperances")
 ## Each sprite or sprite in a spritesheet should be 2560 x 1080 so that it can be properly aligned with the player's viewable area in the cameras
 @export var camera_appearances: Dictionary[GameConstants.CameraID, Appearances]
+@export_subgroup("Init Cameras Buttons", "populate_cameras_")
 @export_tool_button("Initialize Camera Appearances") var populate_cameras_button = populate_camera_appearances
+@export_tool_button("Initialize Camera Appearances with Idle keys and Sprite values") var populate_cameras_apperances_with_idle_sprite_appearance_values_button = populate_camera_apperances_with_idle_sprite_appearance_values
+@export_tool_button("Initialize Camera Appearances with NSFW/SFW keys and Sprite values") var populate_cameras_apperances_with_nsfw_sfw_sprite_appearance_values_button = populate_camera_apperances_with_nsfw_sfw_sprite_appearance_values
+@export_tool_button("Initialize Camera Appearances with Idle keys and Animated values") var populate_cameras_apperances_with_idle_animated_appearance_values_button = populate_camera_apperances_with_idle_animated_appearance_values
+@export_tool_button("Initialize Camera Appearances with NSFW/SFW keys and Animated values") var populate_cameras_apperances_with_nsfw_sfw_animated_appearance_values_button = populate_camera_apperances_with_nsfw_sfw_animated_appearance_values
+
 ## Each sprite or sprite in a spritesheet should be 2560 x 1080 so that it can be properly aligned with the player's viewable area in the office
 @export var office_appearances: Dictionary[GameConstants.OfficePosition, Appearances]
+@export_subgroup("Init Office Buttons", "populate_office_")
 @export_tool_button("Initialize Office Appearances") var populate_office_button = populate_office_appearances
+@export_tool_button("Initialize Office Appearances with Idle keys and Sprite values") var populate_office_apperances_with_idle_sprite_appearance_values_button = populate_camera_apperances_with_idle_sprite_appearance_values
+@export_tool_button("Initialize Office Appearances with NSFW/SFW keys and Sprite values") var populate_office_apperances_with_nsfw_sfw_sprite_appearance_values_button = populate_camera_apperances_with_nsfw_sfw_sprite_appearance_values
+@export_tool_button("Initialize Office Appearances with Idle keys and Animated values") var populate_office_apperances_with_idle_animated_appearance_values_button = populate_camera_apperances_with_idle_animated_appearance_values
+@export_tool_button("Initialize Office Appearances with NSFW/SFW keys and Animated values") var populate_office_apperances_with_nsfw_sfw_animated_appearance_values_button = populate_camera_apperances_with_nsfw_sfw_animated_appearance_values
 
 @export_group("Custom Night", "custom_night_")
 ## The texture that is used on the custom night screen, the standard here is to use 128x128 for your icons, though anything that is with an aspect ratio of 1:1 will work, anything else is untested and might fuck up the UI.
@@ -53,7 +64,7 @@
 ## Not required if they don't actually "kill" the player.
 @export var death_screen_hints: Array[String] = [""]
 ## Not required if they don't actually "kill" the player.
-@export var death_screen_audio: Array[AudioStream]
+@export var death_screen_audio: Dictionary[String, AudioStream]
 
 @export_group("Extras Menu", "extras_")
 ## This is the icon that will be visible when on the overview part of the extras menu
@@ -65,7 +76,7 @@
 @export_multiline var extras_description: String = ""
 ## This is just a place for you to store all of the audio assets that you've used for this character.
 ## Keep in mind, this is only *intended* to be used in the extras menu, even if its *technically* possible to use during normal gameplay...
-@export var extras_audio: Array[AudioStream]
+@export var extras_audio: Dictionary[String, AudioStream]
 
 
 
@@ -76,9 +87,67 @@ func populate_camera_appearances() -> void:
 			camera_appearances[cam_id] = Appearances.new()
 	notify_property_list_changed()
 
+func populate_camera_apperances_with_idle_sprite_appearance_values() -> void:
+	populate_camera_appearances()
+	for cam_id in camera_appearances:
+		var appearance: Appearances = camera_appearances[cam_id]
+		appearance.populate_idle_sprite_appearance_values()
+	notify_property_list_changed()
+
+func populate_camera_apperances_with_nsfw_sfw_sprite_appearance_values() -> void:
+	populate_camera_appearances()
+	for cam_id in camera_appearances:
+		var appearance: Appearances = camera_appearances[cam_id]
+		appearance.populate_nsfw_sfw_sprite_appearance_values()
+	notify_property_list_changed()
+
+func populate_camera_apperances_with_idle_animated_appearance_values() -> void:
+	populate_camera_appearances()
+	for cam_id in camera_appearances:
+		var appearance: Appearances = camera_appearances[cam_id]
+		appearance.populate_idle_animated_appearance_values()
+	notify_property_list_changed()
+
+func populate_camera_apperances_with_nsfw_sfw_animated_appearance_values() -> void:
+	populate_camera_appearances()
+	for cam_id in camera_appearances:
+		var appearance: Appearances = camera_appearances[cam_id]
+		appearance.populate_nsfw_sfw_animated_appearance_values()
+	notify_property_list_changed()
+
+
+
 func populate_office_appearances() -> void:
 	var excluded = [GameConstants.OfficePosition.NONE]
 	for position in GameConstants.OfficePosition.values():
 		if position not in excluded and not office_appearances.has(position):
 			office_appearances[position] = Appearances.new()
+	notify_property_list_changed()
+
+func populate_office_apperances_with_idle_sprite_appearance_values() -> void:
+	populate_camera_appearances()
+	for office_pos in office_appearances:
+		var appearance: Appearances = office_appearances[office_pos]
+		appearance.populate_idle_sprite_appearance_values()
+	notify_property_list_changed()
+
+func populate_office_apperances_with_nsfw_sfw_sprite_appearance_values() -> void:
+	populate_camera_appearances()
+	for office_pos in office_appearances:
+		var appearance: Appearances = office_appearances[office_pos]
+		appearance.populate_nsfw_sfw_sprite_appearance_values()
+	notify_property_list_changed()
+
+func populate_office_apperances_with_idle_animated_appearance_values() -> void:
+	populate_camera_appearances()
+	for office_pos in office_appearances:
+		var appearance: Appearances = office_appearances[office_pos]
+		appearance.populate_idle_animated_appearance_values()
+	notify_property_list_changed()
+
+func populate_office_apperances_with_nsfw_sfw_animated_appearance_values() -> void:
+	populate_camera_appearances()
+	for office_pos in office_appearances:
+		var appearance: Appearances = office_appearances[office_pos]
+		appearance.populate_nsfw_sfw_animated_appearance_values()
 	notify_property_list_changed()
