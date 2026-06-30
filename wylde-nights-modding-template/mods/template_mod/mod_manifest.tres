@@ -4,9 +4,10 @@
 
 [resource]
 script = ExtResource("1_x4v0m")
-mod_id = "template_mod"
-author = "example_author"
+mod_id = ""
+mod_name = ""
+author_id = ""
+author = ""
 version = "1.0"
-mod_name = "Template Mod"
 description = "This is a description box. If this hasnt been filled out yet and you see this in-game, clown on the original mod creator because it would be funny."
 metadata/_custom_type_script = "uid://c3tyef7hh0qcm"

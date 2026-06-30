@@ -1,4 +1,6 @@
 class_name RngPathCharacter extends BaseCharacter
+## Requires Documentation
+
 
 @export var room_graph: RoomGraph
 @export var movement_cooldown_min: float = 5.0
@@ -24,7 +26,7 @@ func movement() -> void:
 	super()
 	
 	if is_currently_at_door(current_location):
-		attempt_attack(GameConstants.parse_office_location(current_location))
+		attempt_attack(GameConstants.parse_cam_id_to_office_pos(current_location))
 		return
 	
 	if not room_graph.graph.has(current_location):

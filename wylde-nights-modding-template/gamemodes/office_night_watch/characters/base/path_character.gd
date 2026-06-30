@@ -1,4 +1,5 @@
 class_name PathCharacter extends BaseCharacter
+## Requires Documentation
 
 @export var path: Array[GameConstants.CameraID] = []
 var current_path_index: int = 0
@@ -36,7 +37,7 @@ func movement() -> void:
 	var previous_location = get_current_location()
 	
 	if check_if_at_final_location():
-		attempt_attack(GameConstants.parse_office_location(path[current_path_index]))
+		attempt_attack(GameConstants.parse_cam_id_to_office_pos(path[current_path_index]))
 		return
 	
 	current_path_index += 1

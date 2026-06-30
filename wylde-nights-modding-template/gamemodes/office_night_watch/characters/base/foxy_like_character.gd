@@ -1,33 +1,43 @@
 class_name FoxyLikeCharacter extends BaseCharacter
+## Requires Documentation
+
 
 var stage: int = 0:
 	set(value):
 		if stage != value:
 			stage = value
 			stage_changed.emit(value)
-			movement_succeeded.emit(get_current_location(), get_current_location()) # Done mostly for camera fuzz, I hope this doesn't have unforeseen consequences
+			
+			# Done mostly for camera fuzz, I hope this doesn't have unforeseen consequences
+			movement_succeeded.emit(get_current_location(), get_current_location()) 
 
+@export var use_movement_opportunity = true ## Makes it so that when advancing stages, it uses movement opportunities rather than just going raw timer
+
+@export_group("Stages")
 @export var total_stages: int = 2 ## This is how many stages a character can go through before attacking. e.g. if the total_stages is at 2 then the character would need to go through stage 0, 1, 2 and then charging when their stage is greater than 2
 @export var stage_timer_duration: float = 10.0 ## How much base time before each stage is incremented
 var stage_timer: float = 0
-@export var target_door: GameConstants.OfficePosition = GameConstants.OfficePosition.LEFT_DOOR
 
+@export_group("Charging")
+@export var target_door: GameConstants.OfficePosition = GameConstants.OfficePosition.LEFT_DOOR ## The door that is targeted by this character. Only LEFT_DOOR and RIGHT_DOOR are valid values, using anything else will automatically fail the movement
 @export var charge_type: ChargeType = ChargeType.AUDIO_STREAM ## Determines how the charge is ran. AUDIO_STREAM requires overriding play_charge_audio() as well as adding a AudioStreamPlayer2D to the scene of the character
 @export var charge_duration: float = 5.0 ## When charge_type is set to TIMER, this is how much time after reaching the final stage before the charge ends
 var charge_timer: float = 0.0
 var is_charging: bool = false
 
+@export_group("Freezing")
 @export var freeze_condition: FreezeCondition = FreezeCondition.WHEN_CAMERA_VIEWED ## The condition required for manipulating the stage timer
 @export var freeze_effect: FreezeEffect = FreezeEffect.FROZEN ## Only active when freeze_condition is WHEN_CAMERA_VIEWED or WHEN_CAMERAS_ACTIVE
 @export var slow_multiplier: float = 0.5 ## How much the stage timer delta is affected
 
+@export_subgroup("Lingering")
 @export var linger_freeze_time: bool = false ## Makes it so that the whole freeze time thing can continue for a little bit longer
-@export var linger_min: float = 0.0
-@export var linger_max: float = 1.0
+@export var linger_min: float = 0.0 ## The minimum time that the lingering freeze time can last for. Requires `linger_freeze_time` to be true
+@export var linger_max: float = 1.0 ## The maximum time that the lingering freeze time can last for. Requires `linger_freeze_time` to be true
 var is_lingering: bool = false
 var linger_timer: float = 0.0
 
-@export var use_movement_opportunity = true ## Makes it so that when advancing stages, it uses movement opportunities rather than just going raw timer
+
 
 enum ChargeType {
 	TIMER, ## The charge is started when the timer starts ticking down and ends when the timer reaches 0
@@ -38,11 +48,12 @@ enum ChargeType {
 enum FreezeCondition {
 	NEVER, ## The charge timer cannot be manipulated
 	WHEN_CAMERA_VIEWED, ## The charge timer is manipulated when the current camera this character is on is viewed
-	WHEN_CAMERAS_ACTIVE, ## The charge timer is manipulated when the cameras are inactive
-	WHEN_CAMERAS_INACTIVE ## The charge timer is manipulated when the cameras are active
+	WHEN_CAMERA_NOT_VIEWED, ## The charge timer is manipulated when the current camera is not viewed. In essence, you have to be watching them just to tick their charge timer...
+	WHEN_CAMERAS_ACTIVE, ## The charge timer is manipulated when the cameras are active
+	WHEN_CAMERAS_INACTIVE ## The charge timer is manipulated when the cameras are inactive
 }
 
-## Only active when freeze_condition is WHEN_CAMERA_VIEWED or WHEN_CAMERAS_ACTIVE
+## Only active when freeze_condition is not NEVER
 enum FreezeEffect {
 	FROZEN, ## Disables the charge timer when freeze_condition is met
 	SLOWED ## Slows down the charge timer based on the slow_multiplier when freeze_condition
@@ -89,9 +100,9 @@ func attempt_attack(office_position: GameConstants.OfficePosition) -> void:
 	super(office_position)
 	pass
 
-func begin_charge():
+func begin_charge() -> void:
 	is_charging = true
-	movement_succeeded
+	movement_succeeded.emit(current_location, current_location)
 	charge_started.emit()
 	charge()
 
@@ -104,9 +115,14 @@ func charge() -> void:
 		ChargeType.AUDIO_STREAM:
 			play_charge_audio()
 
-func on_charge_end():
+func on_charge_end() -> void:
 	is_charging = false
 	charge_ended.emit()
+	
+	if !target_door in [GameConstants.OfficePosition.LEFT_DOOR, GameConstants.OfficePosition.RIGHT_DOOR]:
+		push_error("FoxyLikeCharacter: Character of ID %s has invalid OfficePosition as its target_door. Use only OfficePosition.LEFT_DOOR or OfficePosition.RIGHT_DOOR" % [character_id])
+		return
+	
 	attempt_attack(target_door)
 
 func play_charge_audio() -> void:
@@ -125,6 +141,9 @@ func get_effective_delta(delta: float) -> float:
 		
 		FreezeCondition.WHEN_CAMERA_VIEWED:
 			return apply_freeze(delta, currently_watched)
+		
+		FreezeCondition.WHEN_CAMERA_VIEWED:
+			return apply_freeze(delta, not currently_watched)
 		
 		FreezeCondition.WHEN_CAMERAS_ACTIVE:
 			return apply_freeze(delta, OfficeNightWatchManager.instance.cameras_active)
@@ -170,12 +189,16 @@ func get_current_location() -> GameConstants.CameraID:
 func get_camera_state() -> String:
 	if is_charging:
 		return "charging"
-	return "stage_" + str(stage)
+	return "stage_%d" % stage
 
 
-func on_watched_changed(watched: bool) -> void:
+func on_watched_changed() -> void:
 	if not linger_freeze_time:
 		return
-	if not watched:
+	if not get_watched():
 		is_lingering = true
 		linger_timer = randf_range(linger_min, linger_max)
+
+
+func failed_attack(office_position: GameConstants.OfficePosition) -> void:
+	super(office_position)

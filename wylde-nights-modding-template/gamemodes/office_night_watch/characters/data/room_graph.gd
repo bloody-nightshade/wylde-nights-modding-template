@@ -1,4 +1,12 @@
 @tool class_name RoomGraph extends Resource
+## [RoomGraph] defines the weighted paths a character can take between rooms. Its main use is giving a [RngPathCharacter] a map of where it's allowed to move and how likely each move is.
+##
+## The structure for [RoomConnection] is:[br]
+## - [RoomGraph] - For each room (a [member GameConstants.CameraID]), holds one [RoomConnections].[br]
+## - [RoomConnections] - The list of moves available from that one room.[br]
+## - [RoomConnection] - A single move: a [member RoomConnection.destination] room plus a weight. So a move is resolved as: look up the current room in [member graph] -> get its [RoomConnections] -> pick one [RoomConnection] from the list, weighted by [member RoomConnection.weight] -> move to that connection's destination.
+
+
 
 ## There is a "Populate Defaults" button that should populate this dictionary with defaults to give you a framework for what to work with, if you wish, you can use this as is.
 ## As is, it will generally take this character closer to the player's location most of the time.
